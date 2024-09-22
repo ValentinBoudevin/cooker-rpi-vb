@@ -1,0 +1,67 @@
+{
+    "sources": [
+        {
+            "method": "git",
+            "url": "https://git.yoctoproject.org/git/poky",
+            "dir": "poky",
+            "branch": "scarthgap",
+            "rev": "1678bb9ee2a1ce476b5b153d9e79bb9813c33574"
+        },
+        {
+            "method": "git",
+            "url": "https://github.com/ValentinBoudevin/meta-tuto-embedded-vb.git",
+            "branch": "main",
+            "dir": "meta-tuto-embedded-vb",
+            "rev": "b692ee2d52afb37d8c0397be5ec13573d1ac9b15"
+        },
+        {
+            "method": "git",
+            "url": "https://github.com/openembedded/meta-openembedded.git",
+            "dir": "meta-openembedded",
+            "branch": "scarthgap",
+            "rev": "1235dd4ed4a57e67683c045ad76b6a0f9e896b45"
+        },
+        {
+            "method": "git",
+            "url": "https://github.com/agherzan/meta-raspberrypi.git",
+            "branch": "scarthgap",
+            "dir": "meta-raspberrypi",
+            "rev": "1918a27419dcd5e79954c0dc0edddcde91057a7e"
+        }  
+    ],
+    "layers": [
+        "poky/meta",
+        "poky/meta-poky",
+        "poky/meta-yocto-bsp",
+        "meta-openembedded/meta-oe",
+        "meta-openembedded/meta-python",
+        "meta-openembedded/meta-networking",
+        "meta-openembedded/meta-filesystems",
+        "meta-openembedded/meta-gnome",
+        "meta-openembedded/meta-multimedia",
+        "meta-openembedded/meta-webserver",
+        "meta-openembedded/meta-perl",
+
+        "meta-raspberrypi",
+        "meta-tuto-embedded-vb"
+    ],
+    "local.conf": [
+        "BB_NUMBER_THREADS = '8'",
+        "PARALLEL_MAKE = '-j 8'",
+        "LICENSE_FLAGS_ACCEPTED += ' synaptics-killswitch'"
+    ],
+    "builds": {
+        "embedded-vb": {
+            "target": [
+                "custom-image"
+            ],
+            "notes": [
+                "Yocto tutorial from Youtube channel : EmbeddedVB"
+            ],
+            "local.conf": [
+                "MACHINE = 'rpi4-64'",
+                "DISTRO = 'custom'"
+            ]
+        }
+    }
+}
