@@ -1,0 +1,9 @@
+# Ignore the entire builds directory
+builds/
+sstate-cache/
+downloads/
+layers/
+.vscode/
+
+# Ignore a specific file (example: config.txt)
+.cookerconfig
